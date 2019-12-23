@@ -134,7 +134,7 @@ on init
 
 on fs
     setprop ro.crypto.umount_sd false
-    #mount_all /fstab.grouper
+    mount_all /fstab.g12ref
 
     ubiattach mtd@system
     mount ubifs ubi0_0 /system

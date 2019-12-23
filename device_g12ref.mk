@@ -7,7 +7,6 @@ $(call inherit-product-if-exists, vendor/pentagram/g12ref/g12ref-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/pentagram/g12ref/overlay
 
-
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := device/pentagram/g12ref/kernel
 else
@@ -16,6 +15,10 @@ endif
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
+
+PRODUCT_COPY_FILES += \
+    device/pentagram/g12ref/rootdir/fstab.g12ref:root/fstab.g12ref \
+    device/pentagram/g12ref/rootdir/init.rc:root/init.rc \
 
 $(call inherit-product, build/target/product/full.mk)
 
