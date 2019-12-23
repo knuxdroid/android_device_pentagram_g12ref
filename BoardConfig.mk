@@ -3,6 +3,7 @@ USE_CAMERA_STUB := true
 # inherit from the proprietary version
 -include vendor/pentagram/g12ref/BoardConfigVendor.mk
 
+# These have been copied from https://github.com/FASTCHIP/TWRP_ritmix_rmd1035/blob/master/BoardConfigs/KK_UBIFS_classic_BoardConfig.mk
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
@@ -17,6 +18,7 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 ARCH_ARM_HAVE_ARMV7A := true
 
 TARGET_BOARD_PLATFORM := meson6
+# Fun fact: According to the system.prop, the full board name is g12refM806A2PTGL, hence the "g12ref" codename has been given to this device. TODO: See if we'll need to add this full board name here.
 TARGET_BOOTLOADER_BOARD_NAME := g12ref
 TARGET_NO_BOOTLOADER := true
 # TARGET_NO_KERNEL := true
@@ -24,7 +26,7 @@ TARGET_NO_RADIOIMAGE := true
 TARGET_SIMULATOR := false
 TARGET_PROVIDES_INIT_RC := true
 
-BOARD_KERNEL_CMDLINE := console=ttyS0,115200 loglevel=8 #rw init=/init loglevel=8
+BOARD_KERNEL_CMDLINE := console=ttyS0,115200 loglevel=8
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 
@@ -51,3 +53,9 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
 #TW_CUSTOM_POWER_BUTTON := 116
 #TW_NO_REBOOT_BOOTLOADER := true
 #TWHAVE_SELINUX := true
+
+# TWRP
+TW_THEME := portrait_mdpi
+# TODO: See if this is actually required.
+RECOVERY_SDCARD_ON_DATA := true
+BOARD_HAS_NO_REAL_SDCARD := true
